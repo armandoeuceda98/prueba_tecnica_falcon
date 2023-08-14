@@ -2,6 +2,24 @@ const { request, response } = require('express');
 
 const Tarea = require('../models/tarea.models');
 
+const tareaGet = async (req = request, res = response) => {
+    const { idTarea } = req.query;
+
+    console.log(req.query);
+    try {
+        const tareas = await Tarea.findByPk(idTarea);
+
+        return res.status(200).send({
+            tareas
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({
+            message: "Ocurrió un error: " + error
+        });
+    }
+};
+
 // Trae todas las tareas
 const tareaAllGet = async (req = request, res = response) => {
     try {
@@ -87,6 +105,7 @@ const tareaDelete = async (req, res) => {
 };
 
 module.exports = {
+    tareaGet,
     tareaAllGet,
     tareaPost,
     tareaPut,

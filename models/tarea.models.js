@@ -19,7 +19,7 @@ const Tarea = dbConection.define("tarea", {
         defaultValue: 'Pendiente'
     },
     fechaEntrega: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
     },
 }, {
     timestamps: false,
