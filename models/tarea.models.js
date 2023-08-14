@@ -15,7 +15,8 @@ const Tarea = dbConection.define("tarea", {
         type: DataTypes.TEXT,
     },
     estado: {
-        type: DataTypes.ENUM('Pendiente', 'En Progreso', 'Completada')
+        type: DataTypes.ENUM('Pendiente', 'En Progreso', 'Completada'),
+        defaultValue: 'Pendiente'
     },
     fechaEntrega: {
         type: DataTypes.DATE,
